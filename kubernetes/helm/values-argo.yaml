@@ -1,0 +1,8 @@
+service:
+  name: argocd-server
+  namespace: argocd
+  ports:
+    - name: http
+      port: 443
+      targetPort: 443
+      nodePort: 8080
