@@ -1,9 +1,11 @@
 ingress:
   enabled: true
-  className: "" # Optional: Specify ingress class if needed (e.g., nginx)
+  className: "nginx" # Optional: Specify ingress class if needed (e.g., nginx)
   metadata:
     name: argocd-server-ingress
-  namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
   hosts:
     - host: localhost
       paths:
@@ -12,5 +14,6 @@ ingress:
           backend:
             service:
               name: argocd-server
-              port: 443
+              port: 
+                name: https
   tls: [] # Leave empty since localhost doesn't use HTTPS/TLS
