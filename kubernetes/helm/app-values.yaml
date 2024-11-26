@@ -6,6 +6,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # Ensure HTTPS backend communication
     nginx.ingress.kubernetes.io/ssl-redirect: "false"    # Do not redirect HTTP to HTTPS for local testing
+  namespace: argocd
   hosts:
     - host: localhost
       paths:
