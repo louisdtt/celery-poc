@@ -3,9 +3,6 @@ ingress:
   className: "" # Optional: Specify ingress class if needed (e.g., nginx)
   metadata:
     name: argocd-server-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # Ensure HTTPS backend communication
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"    # Do not redirect HTTP to HTTPS for local testing
   namespace: argocd
   hosts:
     - host: localhost
